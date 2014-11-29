@@ -15,8 +15,8 @@ class MintParse():
 		cols = cols.map(lambda x: x.replace(' ','_'))
 		data.columns = cols		
 		# add month and year for later aggregation
-		data['year'] = [datetime.datetime.strptime(t,"%m/%d/%y").year for t in data.Date]
-		data['month'] = [datetime.datetime.strptime(t,"%m/%d/%y").month for t in data.Date]
+		data['year'] = [datetime.datetime.strptime(t,"%m/%d/%Y").year for t in data.Date]
+		data['month'] = [datetime.datetime.strptime(t,"%m/%d/%Y").month for t in data.Date]
 
 		self.data = data
 		self.debits = data[data['Transaction_Type'].str.contains("debit")]
@@ -38,4 +38,3 @@ class MintParse():
 
 if __name__ == '__main__':
 	run = MintParse()
-
